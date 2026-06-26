@@ -3,7 +3,6 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import gsap from 'gsap';
 
-// ─── Category configuration ────────────────────────────────────────────────
 type CategoryConfig = {
   color: string;
   geometry: 'torusKnot' | 'icosahedron' | 'octahedron' | 'sphere' | 'box' | 'torus';
@@ -18,7 +17,6 @@ const CATEGORY_CONFIG: CategoryConfig[] = [
   { color: '#d97706', geometry: 'torus'        },
 ];
 
-// ─── Geometry helper ────────────────────────────────────────────────────────
 function buildGeometry(type: CategoryConfig['geometry']): THREE.BufferGeometry {
   switch (type) {
     case 'torusKnot':   return new THREE.TorusKnotGeometry(1, 0.4, 128, 16);
@@ -31,7 +29,6 @@ function buildGeometry(type: CategoryConfig['geometry']): THREE.BufferGeometry {
   }
 }
 
-// ─── Scene ──────────────────────────────────────────────────────────────────
 interface SceneProps {
   activeCategory: number;
 }
@@ -98,7 +95,6 @@ function Scene({ activeCategory }: SceneProps) {
   );
 }
 
-// ─── Background3D ────────────────────────────────────────────────────────────
 interface Background3DProps {
   activeCategory: number;
 }
